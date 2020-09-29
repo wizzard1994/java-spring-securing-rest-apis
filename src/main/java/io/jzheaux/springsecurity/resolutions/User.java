@@ -5,18 +5,20 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "users")
 @Table(name = "USERS")
 public class User implements Serializable {
 
     @Id
     private String username;
 
+    @Column
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<UserAuthority> userAuthorities = new HashSet<>();
 
+    @Column
     private boolean enabled;
 
     public User() {

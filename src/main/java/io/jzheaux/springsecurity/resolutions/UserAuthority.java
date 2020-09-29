@@ -3,13 +3,14 @@ package io.jzheaux.springsecurity.resolutions;
 import javax.persistence.*;
 import java.util.UUID;
 
-@Entity
+@Entity(name = "authorities")
 @Table(name = "authorities")
 public class UserAuthority {
 
     @Id
     private UUID id;
 
+    @Column
     private String authority;
 
     @ManyToOne
